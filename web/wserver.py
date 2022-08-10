@@ -780,8 +780,8 @@ def homepage():
     return stdout.decode()
 
 @app.route('/page/<string:id_>')
-def pages():
-  return render_template(id)
+def pages(id_):
+  return id_
     
 @app.errorhandler(Exception)
 def page_not_found(e):
