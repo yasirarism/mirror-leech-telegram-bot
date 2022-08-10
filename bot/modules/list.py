@@ -49,9 +49,7 @@ def _list_drive(bot, key, bmsg, item_type):
         name = f'{key}_{time()}.html'
         with open(name, 'w', encoding='utf-8') as f:
             f.write(hmtl_content.replace('{fileName}', key).replace('{msg}', msg))
-        deleteMessage(bot, bmsg)
-        sendFile(bot, bmsg.reply_to_message, name, rmsg)
-        # remove(name)
+        editMessage(f'Result found for <i>{key}</i>\n\nhttps://mltbestes1.herokuapp.com/page/{name}', bmsg)
     else:
         editMessage(f'No result found for <i>{key}</i>', bmsg)
 
