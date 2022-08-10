@@ -2,7 +2,7 @@ from logging import getLogger, FileHandler, StreamHandler, INFO, basicConfig
 from time import sleep
 from qbittorrentapi import NotFound404Error, Client as qbClient
 from aria2p import API as ariaAPI, Client as ariaClient
-from flask import Flask, request, render_template
+from flask import Flask, request
 import subprocess
 from web.nodes import make_tree
 
@@ -781,7 +781,8 @@ def homepage():
 
 @app.route('/page/<string:id_>')
 def pages(id_):
-  return render_template(id_)
+  f = open(id_, "r")
+  return f.read()
     
 @app.errorhandler(Exception)
 def page_not_found(e):
