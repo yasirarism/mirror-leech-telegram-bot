@@ -3,7 +3,7 @@ from time import sleep
 from qbittorrentapi import NotFound404Error, Client as qbClient
 from aria2p import API as ariaAPI, Client as ariaClient
 from flask import Flask, request
-
+import subprocess
 from web.nodes import make_tree
 
 app = Flask(__name__)
@@ -774,11 +774,14 @@ def set_priority(id_):
 
 @app.route('/')
 def homepage():
-    return "<h1>See mirror-leech-telegram-bot <a href='https://www.github.com/anasty17/mirror-leech-telegram-bot'>@GitHub</a> By <a href='https://github.com/anasty17'>Anas</a></h1>"
-
-# @app.errorhandler(Exception)
-# def page_not_found(e):
-#    return f"<h1>404: Torrent not found! Mostly wrong input. <br><br>Error: {e}</h2>", 404
+    # return "<h1>See mirror-leech-telegram-bot <a href='https://www.github.com/anasty17/mirror-leech-telegram-bot'>@GitHub</a> By <a href='https://github.com/anasty17'>Anas</a></h1>"
+    process = subprocess.Popen("ls", stdout=PIPE, stderr=PIPE, shell=True)
+    stdout, stderr = process.communicate()
+    return stdout.decode()
+    
+@app.errorhandler(Exception)
+def page_not_found(e):
+    return f"<h1>404: Torrent not found! Mostly wrong input. <br><br>Error: {e}</h2>", 404
 
 if __name__ == "__main__":
     app.run()
