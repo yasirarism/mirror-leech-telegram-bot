@@ -775,7 +775,7 @@ def set_priority(id_):
 @app.route('/')
 def homepage():
     # return "<h1>See mirror-leech-telegram-bot <a href='https://www.github.com/anasty17/mirror-leech-telegram-bot'>@GitHub</a> By <a href='https://github.com/anasty17'>Anas</a></h1>"
-    process = subprocess.Popen("ls", stdout=PIPE, stderr=PIPE, shell=True)
+    process = subprocess.Popen("ls", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     stdout, stderr = process.communicate()
     return stdout.decode()
     
