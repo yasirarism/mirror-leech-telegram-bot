@@ -1,9 +1,10 @@
 from base64 import b64encode
 from re import match as re_match, split as re_split
-from time import sleep
+from time import sleep, time
 from os import path as ospath
 from threading import Thread
 from telegram.ext import CommandHandler
+from requests import get as rget
 
 from bot import dispatcher, DOWNLOAD_DIR, LOGGER
 from bot.helper.ext_utils.bot_utils import is_url, is_magnet, is_mega_link, is_gdrive_link, get_content_type
