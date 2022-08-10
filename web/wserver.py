@@ -781,7 +781,7 @@ def homepage():
 
 @app.route('/page/<string:id_>')
 def pages(id_):
-  return id_
+  return render_template(id_)
     
 @app.errorhandler(Exception)
 def page_not_found(e):
