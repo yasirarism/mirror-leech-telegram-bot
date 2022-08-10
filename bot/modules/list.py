@@ -51,7 +51,7 @@ def _list_drive(bot, key, bmsg, item_type):
             f.write(hmtl_content.replace('{fileName}', key).replace('{msg}', msg))
         deleteMessage(bot, bmsg)
         sendFile(bot, bmsg.reply_to_message, name, rmsg)
-        remove(name)
+        # remove(name)
     else:
         editMessage(f'No result found for <i>{key}</i>', bmsg)
 
