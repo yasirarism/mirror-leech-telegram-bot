@@ -80,11 +80,7 @@ def getAllDownload(req_status: str):
     return None
 
 def bt_selection_buttons(id_: str):
-    if len(id_) > 20:
-        gid = id_[:12]
-    else:
-        gid = id_
-
+    gid = id_[:12] if len(id_) > 20 else id_
     pincode = ""
     for n in id_:
         if n.isdigit():
@@ -109,8 +105,7 @@ def get_progress_bar_string(status):
     cFull = p // 8
     p_str = '■' * cFull
     p_str += '□' * (12 - cFull)
-    p_str = f"[{p_str}]"
-    return p_str
+    return f"[{p_str}]"
 
 def get_readable_message():
     with download_dict_lock:
