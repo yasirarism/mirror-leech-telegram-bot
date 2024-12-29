@@ -1,8 +1,8 @@
 # REQUIRED CONFIG
-BOT_TOKEN = ""
-OWNER_ID = 0
-TELEGRAM_API = 0
-TELEGRAM_HASH = ""
+BOT_TOKEN = "7760143701:AAGHiD_j08oWHnt-DVW1hPvobws914xOXi0"                              # Require restart after changing it while bot running
+OWNER_ID = "2024984460"
+TELEGRAM_API = "16266651"
+TELEGRAM_HASH = "347624123649d10ab81517c4e4dbb71d"
 # OPTIONAL CONFIG
 USER_SESSION_STRING = ""
 DOWNLOAD_DIR = "/usr/src/app/downloads/"
